@@ -1,6 +1,7 @@
 def index_validator(i, targets_):
     if 0 <= i < len(targets_):
         return i
+    return 'Invalid index'
 
 
 targets = [int(x) for x in input().split()]
@@ -8,11 +9,11 @@ targets = [int(x) for x in input().split()]
 action = input()
 while action != 'End':
     action_args = action.split()
-    main_action, index = action_args[0:2]
+    main_action, index = action_args[:2]
     index = int(index)
     if main_action == 'Shoot':
         index = index_validator(index, targets)
-        if not index:
+        if index == 'Invalid index':
             action = input()
             continue
         power = int(action_args[2])
@@ -21,7 +22,7 @@ while action != 'End':
             del targets[index]
     elif main_action == 'Add':
         index = index_validator(index, targets)
-        if not index:
+        if index == 'Invalid index':
             action = input()
             print("Invalid placement!")
             continue
