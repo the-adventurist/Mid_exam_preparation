@@ -19,7 +19,7 @@ for i, room in enumerate(rooms):
         print(f"You found {value} bitcoins.")
     else:
         health -= value
-        if health:
+        if health > 0:
             print(f"You slayed {content}.")
         else:
             print(f"You died! Killed by {content}.")
